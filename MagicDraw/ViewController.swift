@@ -19,8 +19,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Do any additional setup after loading the view, typically from a nib.
         
         // Set
-        ScreenSize.width = 500
-        ScreenSize.height = 800
+        ScreenSize.width = 320
+        ScreenSize.height = 1136*0.5
         
         // Get
         let width = ScreenSize.width
@@ -29,6 +29,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBAction func addImage(sender: AnyObject) {
         println("Add the image")
+        
+        
         
         let imagePicker = UIImagePickerController()
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
@@ -41,34 +43,40 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         
-        let image = info[UIImagePickerControllerOriginalImage] as UIImage
-        
-        postImageToParse(image)
         
         dismissViewControllerAnimated(true, completion: {
+            let  image = info[UIImagePickerControllerOriginalImage] as UIImage
             
+            // let image = info[UIImagePickerControllerEditedImage] as UIImage
+            
+            self.postImageToParse(image)
         })
+        
+        ///
+        
+
     }
 
     func postImageToParse(image: UIImage) {
         
         // image is too large
-        let size = CGSizeApplyAffineTransform(image.size, CGAffineTransformMakeScale(0.5, 0.5))
-        let hasAlpha = false
-        let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
         
-        UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
-        image.drawInRect(CGRect(origin: CGPointZero, size: size))
-        
-        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
-        
-        
-        ImageSize.width = scaledImage.size.width
+        ImageSize.width = image.size.width
+        ImageSize.height = image.size.height
+        // Get
+        let width = ImageSize.width
+        println("My image view state:\(width)")
+        // Get
+        let height = ImageSize.height
+        println("My image view state:\(height)")
         
         
-        let imageData = UIImageJPEGRepresentation(scaledImage, 0.5)
+        
+        let imageData = UIImageJPEGRepresentation(image, 0.5)
         let imageFile = PFFile(name:"image.jpg", data: imageData)
         
         var sketchPhoto = PFObject(className: "SketchPhoto")
@@ -96,9 +104,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = ["X-Mashape-Key": "xiL7zSTisvmshlzqU2b8HimW98NFp1MvblHjsnGVIXnFab2CzB",
             "Content-Type": "application/x-www-form-urlencoded"]
         
-        var params = [
-            "objecturl": objecturl
-        ]
+        var params = ["objecturl": objecturl]
+        // var params = ["objecturl": "http://files.parsetfss.com/acbc822b-b4c4-4b64-9e34-aa2001e5b251/tfss-bd76f5d5-c3a1-49cb-af51-1ccf9d8ee5e5-image.jpg"]
         
         let manager = Alamofire.Manager.sharedInstance // or create a new one
         let request = Alamofire.request(.POST, mashapeURL, parameters: params, encoding: .JSON)
@@ -117,10 +124,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 							
 								for tx in text{ //for each detected text
 									println("NEW TEXT----------------")
+                                    var ratio = ScreenSize.width/ImageSize.width
+                                    var txx:CGFloat = 0.0
+                                    var txy:CGFloat = 0.0
+                                    var txw:CGFloat = 0.0
+                                    var txz:CGFloat = 0.0
+                                    
 									if let tc = tx["textCoordinates"] as? NSArray{
-										println("x \(tc[0]) y \(tc[1])")
+										println("x \(tc[0]) y \(tc[1]) width \(tc[2]) height \(tc[3])")
 										//tc[0]=xpos
 										//tc[1]=ypos
+                                        txx = tc[0] as CGFloat
+                                        txy = tc[1] as CGFloat
+                                        txw = tc[2] as CGFloat
+                                        txz = tc[3] as CGFloat
 									}
 									if let tstring = tx["textString"] as? NSString{
 										println("text \(tstring)" )
@@ -130,7 +147,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 										//tid = the id
 										println("id \(tid)")
 									}
-                                    var newMagicSubview = MagicSubView(frame: CGRectMake(0, 0, 100, 100))
+                                    
+                                    
+                                    var newMagicSubview = MagicSubView(frame: CGRectMake(txx*ratio, txy*ratio, (txw-txx)*ratio, (txz-txy)*ratio))
+                                    
+                                    
+                                    
 									self.view.addSubview(newMagicSubview)
 								}
 							}
