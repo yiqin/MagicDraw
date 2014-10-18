@@ -17,9 +17,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-                
+        
+        parseSetup()
+        
         return true
     }
+    
+    func parseSetup() {
+        Parse.setApplicationId("aAo4oD5fmt99uTGNSOonhxi8zDbKWEhmB4NJKYjj", clientKey: "wmOxtasEZgzeMIY8mlzABAJ8rIVkYOLRH79n0uAR")
+        
+        var currentUser = PFUser.currentUser()
+        if currentUser != nil {
+            
+        } else {
+            PFAnonymousUtils.logInWithBlock {
+                (user: PFUser!, error: NSError!) -> Void in
+                if error != nil {
+                    NSLog("Anonymous login failed.")
+                } else {
+                    NSLog("Anonymous user logged in.")
+                }
+            }
+        }
+
+    }
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

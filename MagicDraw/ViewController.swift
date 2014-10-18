@@ -14,6 +14,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        var gameScore = PFObject(className:"GameScore")
+        gameScore["score"] = 1337
+        gameScore["playerName"] = "Sean Plott"
+        gameScore["cheatMode"] = false
+        gameScore.saveInBackgroundWithBlock { (success, error) -> Void in
+            if success {
+                println("Parse data is saved successfully")
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
