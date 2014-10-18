@@ -24,10 +24,25 @@ class ViewController: UIViewController {
         println("My view state:\(width)")
         
         
+        
+        
+        // textRecognition()
+        
+        
+        
+    }
+
+    @IBAction func addImage(sender: AnyObject) {
+        println("Add the image")
+        
+    }
+    
+    
+    func textRecognition() {
         let URL=NSURL(string: "https://imagevision-text-search-v1.p.mashape.com/textSearch/detectText")
         
         Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = ["X-Mashape-Key": "xiL7zSTisvmshlzqU2b8HimW98NFp1MvblHjsnGVIXnFab2CzB",
-        "Content-Type": "application/x-www-form-urlencoded"]
+            "Content-Type": "application/x-www-form-urlencoded"]
         
         var params = [
             "objecturl": "http://files.parsetfss.com/acbc822b-b4c4-4b64-9e34-aa2001e5b251/tfss-422ec0e5-21cd-430f-9e4b-aa02142e4efa-IMG_1097.JPG"
@@ -45,11 +60,9 @@ class ViewController: UIViewController {
                 println(theError.localizedDescription)
             }
         }
-        
-        
-        
     }
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
