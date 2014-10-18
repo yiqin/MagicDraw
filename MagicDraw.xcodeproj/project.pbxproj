@@ -29,6 +29,7 @@
 		8DB6F06419F16C3C002ED90F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB6F06319F16C3C002ED90F /* UIKit.framework */; };
 		8DB6F06619F16C46002ED90F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB6F06519F16C46002ED90F /* CoreGraphics.framework */; };
 		8DB6F06819F16C91002ED90F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB6F06719F16C91002ED90F /* Foundation.framework */; };
+		9BC9794119F2C54E00D0CDF2 /* MagicDrawItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC9794019F2C54E00D0CDF2 /* MagicDrawItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		8DB6F06319F16C3C002ED90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8DB6F06519F16C46002ED90F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8DB6F06719F16C91002ED90F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9BC9794019F2C54E00D0CDF2 /* MagicDrawItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicDrawItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			children = (
 				8D13A89119F15FE1007B5666 /* AppDelegate.swift */,
 				8D13A89619F15FE1007B5666 /* ViewController.swift */,
+				9BC9794019F2C54E00D0CDF2 /* MagicDrawItem.swift */,
 				8D13A89819F15FE1007B5666 /* Main.storyboard */,
 				8D13A89B19F15FE1007B5666 /* Images.xcassets */,
 				8D13A89D19F15FE1007B5666 /* LaunchScreen.xib */,
@@ -294,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BC9794119F2C54E00D0CDF2 /* MagicDrawItem.swift in Sources */,
 				8D13A89719F15FE1007B5666 /* ViewController.swift in Sources */,
 				8D13A89219F15FE1007B5666 /* AppDelegate.swift in Sources */,
 				8D13A89519F15FE1007B5666 /* MagicDraw.xcdatamodeld in Sources */,
