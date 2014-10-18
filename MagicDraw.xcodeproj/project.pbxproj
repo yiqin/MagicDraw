@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D002B8919F307E7008F04B6 /* MagicSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D002B8819F307E7008F04B6 /* MagicSubview.swift */; };
 		8D13A89219F15FE1007B5666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13A89119F15FE1007B5666 /* AppDelegate.swift */; };
 		8D13A89519F15FE1007B5666 /* MagicDraw.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D13A89319F15FE1007B5666 /* MagicDraw.xcdatamodeld */; };
 		8D13A89719F15FE1007B5666 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D13A89619F15FE1007B5666 /* ViewController.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8D002B8819F307E7008F04B6 /* MagicSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicSubview.swift; sourceTree = "<group>"; };
 		8D13A88C19F15FE1007B5666 /* MagicDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D13A89019F15FE1007B5666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D13A89119F15FE1007B5666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				8D13A89119F15FE1007B5666 /* AppDelegate.swift */,
 				8D13A89619F15FE1007B5666 /* ViewController.swift */,
+				8D002B8819F307E7008F04B6 /* MagicSubview.swift */,
 				8D3DAD0319F2CB2A00C74402 /* DeviceManager.swift */,
 				9BC9794019F2C54E00D0CDF2 /* MagicDrawItem.swift */,
 				8D13A89819F15FE1007B5666 /* Main.storyboard */,
@@ -365,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BC9794119F2C54E00D0CDF2 /* MagicDrawItem.swift in Sources */,
+				8D002B8919F307E7008F04B6 /* MagicSubview.swift in Sources */,
 				8D13A89719F15FE1007B5666 /* ViewController.swift in Sources */,
 				8D13A89219F15FE1007B5666 /* AppDelegate.swift in Sources */,
 				8D3DAD0419F2CB2A00C74402 /* DeviceManager.swift in Sources */,

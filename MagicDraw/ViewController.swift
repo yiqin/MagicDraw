@@ -12,6 +12,8 @@ import Alamofire
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
+    var magicSubviews:[MagicSubView] = [];
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -61,6 +63,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         image.drawInRect(CGRect(origin: CGPointZero, size: size))
         
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        
+        ImageSize.width = scaledImage.size.width
         
         
         let imageData = UIImageJPEGRepresentation(scaledImage, 0.5)
@@ -125,7 +130,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 										//tid = the id
 										println("id \(tid)")
 									}
-									
+                                    var newMagicSubview = MagicSubView(frame: CGRectMake(0, 0, 100, 100))
+									self.view.addSubview(newMagicSubview)
 								}
 							}
 						}
