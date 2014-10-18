@@ -22,7 +22,7 @@
 		<key>1732334A00BCE3E318833C3B705D64A6F1C39614</key>
 		<string>../..</string>
 		<key>67620B5EFA902936DF04070AF595B76AB0333747</key>
-		<string>../../Alamofire/</string>
+		<string>../../Alamofire</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/yiqin/MagicDraw.git</string>
