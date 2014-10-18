@@ -101,7 +101,44 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if let result = string {
                 println(result)
                 // process result
-                
+				var jsonError: NSError?
+				println ("Parsing result")
+				let data = result.dataUsingEncoding(NSUTF8StringEncoding)
+				if let json = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &jsonError) as? NSDictionary {
+					if let detected=json["textDetected"] as? Bool{
+						if detected==true {
+							println("detected text")
+							if let text = json["text"] as? NSArray {
+							
+								for tx in text{ //for each detected text
+									println("NEW TEXT----------------")
+									if let tc = tx["textCoordinates"] as? NSArray{
+										println("x \(tc[0]) y \(tc[1])")
+										//tc[0]=xpos
+										//tc[1]=ypos
+									}
+									if let tstring = tx["textString"] as? NSString{
+										println("text \(tstring)" )
+										//tstring= the detected text
+									}
+									if let tid = tx["id"] as? NSNumber{
+										//tid = the id
+										println("id \(tid)")
+									}
+									
+								}
+							}
+						}
+					}
+					
+					
+				} else {
+					if let unwrappedError = jsonError {//no json
+						println("json error: \(unwrappedError)")
+						print(result)
+					}
+				}
+
                 
                 
                 
