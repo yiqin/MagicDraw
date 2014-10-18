@@ -26,6 +26,8 @@
 		8D3DACF819F2B75100C74402 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3DACF719F2B75100C74402 /* CoreLocation.framework */; };
 		8D3DACFA19F2B75D00C74402 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3DACF919F2B75D00C74402 /* CFNetwork.framework */; };
 		8D3DACFC19F2B76300C74402 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3DACFB19F2B76300C74402 /* AudioToolbox.framework */; };
+		8D3DAD0419F2CB2A00C74402 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3DAD0319F2CB2A00C74402 /* DeviceManager.swift */; };
+		8D3DAD1D19F2D70C00C74402 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3DAD1919F2D6B200C74402 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8DB6F06419F16C3C002ED90F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB6F06319F16C3C002ED90F /* UIKit.framework */; };
 		8DB6F06619F16C46002ED90F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB6F06519F16C46002ED90F /* CoreGraphics.framework */; };
 		8DB6F06819F16C91002ED90F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB6F06719F16C91002ED90F /* Foundation.framework */; };
@@ -40,7 +42,35 @@
 			remoteGlobalIDString = 8D13A88B19F15FE1007B5666;
 			remoteInfo = MagicDraw;
 		};
+		8D3DAD1819F2D6B200C74402 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D3DAD1319F2D6B200C74402 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
+		8D3DAD1A19F2D6B200C74402 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D3DAD1319F2D6B200C74402 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = AlamofireTests;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8D3DAD1C19F2D6D400C74402 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8D3DAD1D19F2D70C00C74402 /* Alamofire.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8D13A88C19F15FE1007B5666 /* MagicDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +96,8 @@
 		8D3DACF719F2B75100C74402 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8D3DACF919F2B75D00C74402 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		8D3DACFB19F2B76300C74402 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8D3DAD0319F2CB2A00C74402 /* DeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
+		8D3DAD1319F2D6B200C74402 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		8DB6ED9819F16A3B002ED90F /* MagicDraw-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MagicDraw-Bridging-Header.h"; sourceTree = "<group>"; };
 		8DB6F06319F16C3C002ED90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8DB6F06519F16C46002ED90F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -109,6 +141,7 @@
 		8D13A88319F15FE1007B5666 = {
 			isa = PBXGroup;
 			children = (
+				8D3DAD1319F2D6B200C74402 /* Alamofire.xcodeproj */,
 				8DB6F06219F16C35002ED90F /* Frameworks */,
 				8D13A88E19F15FE1007B5666 /* MagicDraw */,
 				8D13A8A719F15FE2007B5666 /* MagicDrawTests */,
@@ -130,6 +163,7 @@
 			children = (
 				8D13A89119F15FE1007B5666 /* AppDelegate.swift */,
 				8D13A89619F15FE1007B5666 /* ViewController.swift */,
+				8D3DAD0319F2CB2A00C74402 /* DeviceManager.swift */,
 				9BC9794019F2C54E00D0CDF2 /* MagicDrawItem.swift */,
 				8D13A89819F15FE1007B5666 /* Main.storyboard */,
 				8D13A89B19F15FE1007B5666 /* Images.xcassets */,
@@ -166,6 +200,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8D3DAD1419F2D6B200C74402 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D3DAD1919F2D6B200C74402 /* Alamofire.framework */,
+				8D3DAD1B19F2D6B200C74402 /* AlamofireTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8DB6F06219F16C35002ED90F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +241,7 @@
 				8D13A88819F15FE1007B5666 /* Sources */,
 				8D13A88919F15FE1007B5666 /* Frameworks */,
 				8D13A88A19F15FE1007B5666 /* Resources */,
+				8D3DAD1C19F2D6D400C74402 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -264,6 +308,12 @@
 			mainGroup = 8D13A88319F15FE1007B5666;
 			productRefGroup = 8D13A88D19F15FE1007B5666 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8D3DAD1419F2D6B200C74402 /* Products */;
+					ProjectRef = 8D3DAD1319F2D6B200C74402 /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8D13A88B19F15FE1007B5666 /* MagicDraw */,
@@ -271,6 +321,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8D3DAD1919F2D6B200C74402 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 8D3DAD1819F2D6B200C74402 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8D3DAD1B19F2D6B200C74402 /* AlamofireTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AlamofireTests.xctest;
+			remoteRef = 8D3DAD1A19F2D6B200C74402 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8D13A88A19F15FE1007B5666 /* Resources */ = {
@@ -300,6 +367,7 @@
 				9BC9794119F2C54E00D0CDF2 /* MagicDrawItem.swift in Sources */,
 				8D13A89719F15FE1007B5666 /* ViewController.swift in Sources */,
 				8D13A89219F15FE1007B5666 /* AppDelegate.swift in Sources */,
+				8D3DAD0419F2CB2A00C74402 /* DeviceManager.swift in Sources */,
 				8D13A89519F15FE1007B5666 /* MagicDraw.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
