@@ -19,8 +19,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Do any additional setup after loading the view, typically from a nib.
         
         // Set
-        ScreenSize.width = 320
-        ScreenSize.height = 1136*0.5
+        ScreenSize.width = 640
+        ScreenSize.height = 1136
         
         // Get
         let width = ScreenSize.width
@@ -31,16 +31,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         println("Add the image")
         
         
-        
         let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        
+        
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
             imagePicker.sourceType = .Camera
         } else {
             imagePicker.sourceType = .PhotoLibrary
         }
         
-        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        
         presentViewController(imagePicker, animated: true, completion: nil)
+        
     }
     
 
@@ -49,9 +53,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         
         dismissViewControllerAnimated(true, completion: {
-            let  image = info[UIImagePickerControllerOriginalImage] as UIImage
+            // 2592 * 1925
+            // let  image = info[UIImagePickerControllerOriginalImage] as UIImage
             
-            // let image = info[UIImagePickerControllerEditedImage] as UIImage
+            
+            // 640 * 640
+            let image = info[UIImagePickerControllerEditedImage] as UIImage
+            
+            
+            //
+            // let testImage = info[UIImagePickerControllerCropRect] as UIImage
             
             self.postImageToParse(image)
         })
@@ -64,6 +75,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func postImageToParse(image: UIImage) {
         
         // image is too large
+        
+        var imageView = UIImageView(image: image)
+        
+        
         
         ImageSize.width = image.size.width
         ImageSize.height = image.size.height
@@ -149,10 +164,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 									}
                                     
                                     
-                                    var newMagicSubview = MagicSubView(frame: CGRectMake(txx*ratio, txy*ratio, (txw-txx)*ratio, (txz-txy)*ratio))
-                                    
-                                    
-                                    
+                                    var newMagicSubview = MagicSubView(frame: CGRectMake((txx-300)*ratio, txy*ratio, (txw-txx)*ratio, (txz-txy)*ratio))
+                 
 									self.view.addSubview(newMagicSubview)
 								}
 							}
